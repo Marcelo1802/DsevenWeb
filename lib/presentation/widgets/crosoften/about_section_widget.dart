@@ -48,26 +48,52 @@ class AboutSectionWidget extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Imagem
+              // Coluna da esquerda - Imagem + CTA Button
               Expanded(
                 flex: 5,
-                child: Container(
-                  height: 400,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    image: const DecorationImage(
-                      image: NetworkImage(
-                        'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80',
+                child: Column(
+                  children: [
+                    // Imagem
+                    Container(
+                      height: 400,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: const DecorationImage(
+                          image: NetworkImage(
+                            'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80',
+                          ),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      fit: BoxFit.cover,
                     ),
-                  ),
+                    
+                    const SizedBox(height: 40),
+                    
+                    // CTA Button abaixo da imagem
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(24),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF2196F3),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Text(
+                        'Atendimento personalizado, focado em trazer solução ao cliente,\ngerar resultados e crescimento constante.\n\nSoluções Que Resolvem !',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          height: 1.5,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               
               const SizedBox(width: 60),
               
-              // Conteúdo
+              // Coluna da direita - Conteúdo
               Expanded(
                 flex: 5,
                 child: Column(
@@ -104,7 +130,7 @@ class AboutSectionWidget extends StatelessWidget {
                     
                     const SizedBox(height: 40),
                     
-                    // Cards de benefícios
+                    // Cards de benefícios - apenas 2 lado a lado
                     Row(
                       children: [
                         Expanded(
@@ -120,6 +146,22 @@ class AboutSectionWidget extends StatelessWidget {
                               const SizedBox(height: 8),
                               Text(
                                 AppStrings.creativityDescription,
+                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                  height: 1.5,
+                                ),
+                              ),
+                              
+                              const SizedBox(height: 32),
+                              
+                              Text(
+                                AppStrings.expertiseTitle,
+                                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                  fontSize: 20,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                AppStrings.expertiseDescription,
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                   height: 1.5,
                                 ),
@@ -147,43 +189,9 @@ class AboutSectionWidget extends StatelessWidget {
                                   height: 1.5,
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    
-                    const SizedBox(height: 32),
-                    
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                AppStrings.expertiseTitle,
-                                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                AppStrings.expertiseDescription,
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  height: 1.5,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        
-                        const SizedBox(width: 40),
-                        
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                              
+                              const SizedBox(height: 32),
+                              
                               Text(
                                 AppStrings.supportTitle,
                                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
@@ -201,26 +209,6 @@ class AboutSectionWidget extends StatelessWidget {
                           ),
                         ),
                       ],
-                    ),
-                    
-                    const SizedBox(height: 40),
-                    
-                    // CTA Button
-                    Container(
-                      padding: const EdgeInsets.all(24),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF2196F3),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Text(
-                        'Atendimento personalizado, focado em trazer solução ao cliente,\ngerar resultados e crescimento constante.\n\nSoluções Que Resolvem !',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          height: 1.5,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
                     ),
                   ],
                 ),
