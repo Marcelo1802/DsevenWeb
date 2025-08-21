@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_strings.dart';
+import '../common/dseven_logo.dart';
 
 class FooterWidget extends StatefulWidget {
   const FooterWidget({super.key});
@@ -164,7 +165,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                           ),
                           const SizedBox(width: 8),
                           const Text(
-                            'contato@crosoften.com.br',
+                            'contato@Dseven.com.br',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 14,
@@ -342,9 +343,10 @@ class _FooterWidgetState extends State<FooterWidget> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 20),
             decoration: BoxDecoration(
+              color: Colors.white,
               border: Border(
                 top: BorderSide(
-                  color: Colors.white.withOpacity(0.2),
+                  color: const Color(0xFF2196F3).withOpacity(0.2),
                   width: 1,
                 ),
               ),
@@ -359,7 +361,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                       child: const Text(
                         AppStrings.terms,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Color(0xFF2196F3),
                           fontSize: 14,
                         ),
                       ),
@@ -370,7 +372,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                       child: const Text(
                         'Políticas',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Color(0xFF2196F3),
                           fontSize: 14,
                         ),
                       ),
@@ -379,21 +381,30 @@ class _FooterWidgetState extends State<FooterWidget> {
                 ),
                 
                 // Logo Dseven
-                Text(
-                  AppStrings.appName,
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                DsevenLogo(
+                  height: 30,
                 ),
                 
-                Text(
-                  '@2025 - Dseven| All Right Reserved',
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.7),
-                    fontSize: 12,
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      '@2025 - ',
+                      style: TextStyle(
+                        color: const Color(0xFF2196F3).withOpacity(0.7),
+                        fontSize: 12,
+                      ),
+                    ),
+                    DsevenLogo(
+                      height: 12,
+                    ),
+                    Text(
+                      '| All Right Reserved',
+                      style: TextStyle(
+                        color: const Color(0xFF2196F3).withOpacity(0.7),
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_strings.dart';
+import '../common/dseven_logo.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
@@ -37,13 +38,11 @@ class HeaderWidget extends StatelessWidget {
               ),
             ),
             
-            // Imagem Dseven centralizada
+            // Logo Dseven centralizado
             Expanded(
               child: Center(
-                child: Image.asset(
-                  AppStrings.dsevenImagePath,
+                child: DsevenLogo(
                   height: 50,
-                  fit: BoxFit.contain,
                 ),
               ),
             ),

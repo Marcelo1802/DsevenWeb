@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CroSoften - Desenvolvimento de Software',
+      title: 'Dseven - Desenvolvimento de Software',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const DsevenHomeView(),
+      home: const CroSoftenHomeView(),
     );
   }
 }

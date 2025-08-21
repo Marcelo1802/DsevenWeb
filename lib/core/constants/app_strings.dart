@@ -27,9 +27,9 @@ class AppStrings {
   static const String projectsTitle = 'TRABALHOS RECENTES';
   static const String projectsSubtitle = 'Projetos Inovadores, Resultados Incríveis';
   static const String projectsDescription = 'Transformando ideias em soluções digitais de sucesso.';
-  static const String podcastTitle = 'DSEVEN PODCAST';
-  static const String podcastSubtitle = 'Guia passo a passo para criar uma aplicação.';
-  static const String podcastVideoTitle = 'Dseven PodCast - Guia passo a passo para criar uma aplicação.';
+  static const String podcastTitle = 'DSEVEN VIDEO';
+  static const String podcastSubtitle = 'Sobre Dseven texto de descrição do video';
+  static const String podcastVideoTitle = 'Video Explicativo';
 
   // Projects Carousel
   static const String projectViewButton = 'Ver Projeto';
@@ -147,6 +147,33 @@ class AppStrings {
   static const String agileDeliveryTitle = 'Entregas Ágeis';
   static const String agileDeliveryDescription = 'Processo por etapas com foco em velocidade com qualidade.';
 
+  // Company Values Section
+  static const String companyValuesTitle = 'DSEVEN - MAIS QUE UM NOME';
+  static const String companyValuesSubtitle = 'Nossos Valores e Princípios';
+  static const String companyValuesDescription = 'O nome Dseven representa nossos 7 princípios fundamentais que guiam cada decisão e cada projeto que desenvolvemos.';
+  
+  // Os 7 Princípios
+  static const String principle1Title = 'Inovação';
+  static const String principle1Description = 'Buscamos sempre as mais novas tecnologias e metodologias para entregar soluções de ponta.';
+  
+  static const String principle2Title = 'Qualidade';
+  static const String principle2Description = 'Cada linha de código é revisada e testada para garantir a máxima qualidade em nossos produtos.';
+  
+  static const String principle3Title = 'Agilidade';
+  static const String principle3Description = 'Processos otimizados e entregas rápidas sem comprometer a excelência do resultado final.';
+  
+  static const String principle4Title = 'Transparência';
+  static const String principle4Description = 'Comunicação clara e honesta em cada etapa do projeto, mantendo nossos clientes sempre informados.';
+  
+  static const String principle5Title = 'Colaboração';
+  static const String principle5Description = 'Trabalhamos em parceria com nossos clientes, criando soluções que realmente atendem suas necessidades.';
+  
+  static const String principle6Title = 'Evolução';
+  static const String principle6Description = 'Aprendizado contínuo e adaptação às mudanças do mercado para sempre oferecer o melhor.';
+  
+  static const String principle7Title = 'Impacto';
+  static const String principle7Description = 'Criamos soluções que geram transformação real nos negócios de nossos clientes.';
+
   // Footer Section
   static const String googleMap = 'Mapa do Google';
   static const String headquarter = 'Headquarter';
@@ -160,7 +187,7 @@ class AppStrings {
 
   // Asset Paths
   static const String logoAssetPath = 'assets/DsevensenLogo.png';
-  static const String dsevenImagePath = 'assets/Dseven.png';
+  static const String dsevenImagePath = 'assets/TextDseven.png';
   static const String bannerAssetPath = 'assets/banner.png';
   static const String homeIconPath = 'assets/icons/init.png';
   static const String aboutIconPath = 'assets/icons/sobre.png';

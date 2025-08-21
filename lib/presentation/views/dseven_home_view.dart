@@ -9,14 +9,14 @@ import '../widgets/dseven/clients_section_widget.dart';
 import '../widgets/dseven/footer_widget.dart';
 import '../widgets/common/process_card.dart';
 
-class DsevenHomeView extends StatefulWidget {
-  const DsevenHomeView({super.key});
+class CroSoftenHomeView extends StatefulWidget {
+  const CroSoftenHomeView({super.key});
 
   @override
-  State<DsevenHomeView> createState() => _DsevenHomeViewState();
+  State<CroSoftenHomeView> createState() => _CroSoftenHomeViewState();
 }
 
-class _DsevenHomeViewState extends State<DsevenHomeView> {
+class _CroSoftenHomeViewState extends State<CroSoftenHomeView> {
   final ScrollController _scrollController = ScrollController();
 
   @override

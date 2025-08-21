@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_strings.dart';
+import 'company_values_section_widget.dart';
 
 class ClientsSectionWidget extends StatelessWidget {
   const ClientsSectionWidget({super.key});
@@ -42,119 +43,8 @@ class ClientsSectionWidget extends StatelessWidget {
           ),
         ),
         
-        // Seção de Números/Resultados
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 80),
-          color: const Color(0xFF1A1A2E),
-          child: Column(
-            children: [
-              Text(
-                AppStrings.companyNumbersTitle,
-                style: TextStyle(
-                  color: const Color(0xFF2196F3),
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
-                ),
-              ),
-              
-              const SizedBox(height: 16),
-              
-              const Text(
-                AppStrings.companyResultsTitle,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              
-              const SizedBox(height: 16),
-              
-              const Text(
-                AppStrings.companyResultsDescription,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              
-              const SizedBox(height: 80),
-              
-              // Números em destaque
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _buildStatCard(
-                    context,
-                    Icons.access_time,
-                    '20',
-                    AppStrings.yearsInMarket,
-                  ),
-                  _buildStatCard(
-                    context,
-                    Icons.engineering,
-                    '800',
-                    AppStrings.specialistEngineers,
-                  ),
-                  _buildStatCard(
-                    context,
-                    Icons.groups,
-                    '2,500',
-                    AppStrings.successfulProjects,
-                  ),
-                  _buildStatCard(
-                    context,
-                    Icons.attach_money,
-                    '120',
-                    AppStrings.millionsValuation,
-                  ),
-                ],
-              ),
-              
-              const SizedBox(height: 80),
-              
-              // Citação do CEO
-              Container(
-                padding: const EdgeInsets.all(40),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.white.withOpacity(0.2),
-                    width: 1,
-                  ),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Column(
-                  children: [
-                    const Text(
-                      AppStrings.testimonialQuote,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        height: 1.5,
-                        fontStyle: FontStyle.italic,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    
-                    const SizedBox(height: 24),
-                    
-                    Text(
-                      '– Rafael Melo, CEO',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
-                        fontSize: 16,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
+        // Seção de Valores da Empresa (importada de outro widget)
+        const CompanyValuesSectionWidget(),
       ],
     );
   }
@@ -196,45 +86,5 @@ class ClientsSectionWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildStatCard(BuildContext context, IconData icon, String number, String label) {
-    return Column(
-      children: [
-        Container(
-          width: 80,
-          height: 80,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(40),
-          ),
-          child: Icon(
-            icon,
-            color: Colors.white,
-            size: 40,
-          ),
-        ),
-        
-        const SizedBox(height: 24),
-        
-        Text(
-          number,
-          style: TextStyle(
-            color: const Color(0xFF2196F3),
-            fontSize: 48,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        
-        const SizedBox(height: 8),
-        
-        Text(
-          label,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
+
 }
