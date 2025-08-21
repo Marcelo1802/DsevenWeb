@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_strings.dart';
+import '../common/animated_hover_card.dart';
 
 class ServicesSectionWidget extends StatelessWidget {
   const ServicesSectionWidget({super.key});
@@ -93,206 +94,114 @@ class ServicesSectionWidget extends StatelessWidget {
               ),
             ],
           ),
-          
-          const SizedBox(height: 80),
-          
-          // Seção de processo
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 60),
-            child: Column(
-              children: [
-                Text(
-                  AppStrings.servicesProcessTitle,
-                  style: TextStyle(
-                    color: const Color(0xFF2196F3),
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 2,
-                  ),
-                ),
-                
-                const SizedBox(height: 80),
-                
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Imersão
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF2196F3),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: const Icon(
-                              Icons.search,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-                          Text(
-                            'IMERSÃO',
-                            style: TextStyle(
-                              color: const Color(0xFF2196F3),
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Nossa imersão é o primeiro passo para avaliarmos a solução ideal para o cliente, nossos engenheiros de requisitos realizam um entendimento aprofundado em busca de detalhes.',
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              height: 1.5,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-                    
-                    const SizedBox(width: 60),
-                    
-                    // Proposta
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF2196F3),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: const Icon(
-                              Icons.description,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-                          Text(
-                            AppStrings.proposalTitle,
-                            style: TextStyle(
-                              color: const Color(0xFF2196F3),
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Feita a imersão, nosso time de engenharia desenvolve uma proposta de projeto, envolvendo todos os detalhes necessários para construção da solução sob medida para o cliente.',
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              height: 1.5,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-                    
-                    const SizedBox(width: 60),
-                    
-                    // Execução
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF2196F3),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: const Icon(
-                              Icons.build,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-                          Text(
-                            'EXECUÇÃO, PLANEJAMENTO E\nPUBLICAÇÃO',
-                            style: TextStyle(
-                              color: const Color(0xFF2196F3),
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Iniciados os trabalhos, prestamos toda a consultoria para planejamento e execução do projeto, mitigando riscos, resolvendo desafios e publicando a solução tecnológica.',
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              height: 1.5,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+
         ],
       ),
     );
   }
 
   Widget _buildServiceCard(BuildContext context, IconData icon, String title, String description) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.grey[100],
-              borderRadius: BorderRadius.circular(12),
+    return ServiceCard(
+      icon: icon,
+      title: title,
+      description: description,
+    );
+  }
+}
+
+class ServiceCard extends StatefulWidget {
+  final IconData icon;
+  final String title;
+  final String description;
+
+  const ServiceCard({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.description,
+  });
+
+  @override
+  State<ServiceCard> createState() => _ServiceCardState();
+}
+
+class _ServiceCardState extends State<ServiceCard> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final isBlue = _isHovered;
+    
+    final textColor = isBlue ? Colors.white : Colors.black;
+    final iconColor = isBlue ? Colors.white : const Color(0xFF2196F3);
+    final iconBgColor = isBlue 
+        ? Colors.white.withOpacity(0.2)
+        : const Color(0xFF2196F3).withOpacity(0.1);
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.all(24),
+        decoration: BoxDecoration(
+          color: isBlue ? const Color(0xFF2196F3) : Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(_isHovered ? 0.15 : 0.08),
+              blurRadius: _isHovered ? 15 : 8,
+              offset: Offset(0, _isHovered ? 6 : 3),
             ),
-            child: Icon(
-              icon,
-              color: const Color(0xFF1A1A2E),
-              size: 32,
+          ],
+        ),
+        transform: Matrix4.identity()..scale(_isHovered ? 1.02 : 1.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: iconBgColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Icon(
+                widget.icon,
+                color: iconColor,
+                size: 32,
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+            const SizedBox(height: 20),
+            AnimatedDefaultTextStyle(
+              duration: const Duration(milliseconds: 200),
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: textColor,
+              ) ?? TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: textColor,
+              ),
+              child: Text(widget.title),
             ),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            description,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              height: 1.4,
-              fontSize: 14,
+            const SizedBox(height: 12),
+            AnimatedDefaultTextStyle(
+              duration: const Duration(milliseconds: 200),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                height: 1.4,
+                fontSize: 14,
+                color: isBlue ? Colors.white.withOpacity(0.9) : Colors.grey[600],
+              ) ?? TextStyle(
+                height: 1.4,
+                fontSize: 14,
+                color: isBlue ? Colors.white.withOpacity(0.9) : Colors.grey[600],
+              ),
+              child: Text(widget.description),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

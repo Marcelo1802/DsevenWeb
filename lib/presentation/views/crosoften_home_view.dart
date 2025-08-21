@@ -7,6 +7,7 @@ import '../widgets/crosoften/services_section_widget.dart';
 import '../widgets/crosoften/projects_section_widget.dart';
 import '../widgets/crosoften/clients_section_widget.dart';
 import '../widgets/crosoften/footer_widget.dart';
+import '../widgets/common/process_card.dart';
 
 class CroSoftenHomeView extends StatefulWidget {
   const CroSoftenHomeView({super.key});

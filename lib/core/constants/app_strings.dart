@@ -139,6 +139,14 @@ class AppStrings {
   static const String database = 'Database';
   static const String proposalTitle = 'PROPOSTA';
 
+  // Process Cards
+  static const String reviewTitle = 'Review 3x';
+  static const String reviewDescription = 'Todas as etapas do nosso processo são revisadas 3 vezes para garantir aderência e qualidade.';
+  static const String riskMitigationTitle = 'Mitigação de Riscos';
+  static const String riskMitigationDescription = 'Consultoria para encurtar caminhos, acelerar aprendizado e desenvolver apps que resolvem.';
+  static const String agileDeliveryTitle = 'Entregas Ágeis';
+  static const String agileDeliveryDescription = 'Processo por etapas com foco em velocidade com qualidade.';
+
   // Footer Section
   static const String googleMap = 'Mapa do Google';
   static const String headquarter = 'Headquarter';
