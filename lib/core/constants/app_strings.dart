@@ -24,59 +24,59 @@ class AppStrings {
   static const String servicesSubtitle = 'Comprehensive solutions for your business needs';
 
   // Projects Section
-  static const String projectsTitle = 'RECENT WORK';
-  static const String projectsSubtitle = 'Innovative Projects, Amazing Results';
-  static const String projectsDescription = 'Transforming ideas into successful digital solutions.';
+  static const String projectsTitle = 'TRABALHOS RECENTES';
+  static const String projectsSubtitle = 'Projetos Inovadores, Resultados Incríveis';
+  static const String projectsDescription = 'Transformando ideias em soluções digitais de sucesso.';
   static const String podcastTitle = 'DSEVEN PODCAST';
-  static const String podcastSubtitle = 'Step by step guide to create an application.';
-  static const String podcastVideoTitle = 'Dseven PodCast - Step by step guide to create an application.';
+  static const String podcastSubtitle = 'Guia passo a passo para criar uma aplicação.';
+  static const String podcastVideoTitle = 'Dseven PodCast - Guia passo a passo para criar uma aplicação.';
 
   // Projects Carousel
-  static const String projectViewButton = 'View Project';
-  static const String projectDemoButton = 'Live Demo';
-  static const String projectShowcaseTitle = 'Project Showcase';
-  static const String projectDemoAvailable = 'Interactive Demo Available';
+  static const String projectViewButton = 'Ver Projeto';
+  static const String projectDemoButton = 'link do projeto';
+  static const String projectShowcaseTitle = 'Vitrine de Projetos';
+  static const String projectDemoAvailable = 'Demo Interativo Disponível';
 
   // Project Types
-  static const String projectEcommerce = 'E-Commerce Platform';
-  static const String projectEcommerceDesc = 'A comprehensive e-commerce solution with advanced features including inventory management, payment processing, and customer analytics. Built with scalable architecture to handle thousands of concurrent users.';
+  static const String projectEcommerce = 'Plataforma E-Commerce';
+  static const String projectEcommerceDesc = 'Solução abrangente de e-commerce com recursos avançados incluindo gerenciamento de estoque, processamento de pagamentos e análise de clientes. Construída com arquitetura escalável para lidar com milhares de usuários simultâneos.';
   
-  static const String projectHealthcare = 'Healthcare Management System';
-  static const String projectHealthcareDesc = 'Digital healthcare platform connecting patients with medical professionals through secure video consultations, appointment scheduling, and electronic health records management.';
+  static const String projectHealthcare = 'Sistema de Gestão de Saúde';
+  static const String projectHealthcareDesc = 'Plataforma digital de saúde conectando pacientes com profissionais médicos através de consultas seguras por vídeo, agendamento de consultas e gerenciamento de prontuários eletrônicos.';
   
-  static const String projectFinance = 'Financial Trading App';
-  static const String projectFinanceDesc = 'Advanced trading platform with real-time market data, portfolio management, and AI-powered investment recommendations for both beginner and professional traders.';
+  static const String projectFinance = 'App de Trading Financeiro';
+  static const String projectFinanceDesc = 'Plataforma avançada de trading com dados de mercado em tempo real, gerenciamento de portfólio e recomendações de investimento com IA para traders iniciantes e profissionais.';
   
-  static const String projectEducation = 'Education Learning Platform';
-  static const String projectEducationDesc = 'Interactive online learning platform with video courses, live sessions, progress tracking, and certification programs for students and professionals.';
+  static const String projectEducation = 'Plataforma de Ensino Online';
+  static const String projectEducationDesc = 'Plataforma interativa de aprendizado online com cursos em vídeo, sessões ao vivo, acompanhamento de progresso e programas de certificação para estudantes e profissionais.';
 
   // Features
   static const List<String> ecommerceFeatures = [
-    'Mobile Responsive',
-    'Payment Integration',
-    'Real-time Analytics',
-    'Inventory Management'
+    'Mobile Responsivo',
+    'Integração de Pagamento',
+    'Analytics em Tempo Real',
+    'Gestão de Estoque'
   ];
 
   static const List<String> healthcareFeatures = [
-    'Telemedicine',
-    'Appointment Booking',
-    'Electronic Records',
-    'Secure Messaging'
+    'Telemedicina',
+    'Agendamento de Consultas',
+    'Prontuários Eletrônicos',
+    'Mensagens Seguras'
   ];
 
   static const List<String> financeFeatures = [
-    'Real-time Trading',
-    'Portfolio Analytics',
-    'AI Recommendations',
-    'Market Insights'
+    'Trading em Tempo Real',
+    'Analytics de Portfólio',
+    'Recomendações IA',
+    'Insights de Mercado'
   ];
 
   static const List<String> educationFeatures = [
-    'Video Streaming',
-    'Live Classes',
-    'Progress Tracking',
-    'Certification'
+    'Streaming de Vídeo',
+    'Aulas ao Vivo',
+    'Acompanhamento de Progresso',
+    'Certificação'
   ];
 
   // Clients Section
