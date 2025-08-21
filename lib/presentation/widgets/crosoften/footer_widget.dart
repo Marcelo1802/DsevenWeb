@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_strings.dart';
 
 class FooterWidget extends StatefulWidget {
   const FooterWidget({super.key});
@@ -42,7 +43,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                           ),
                           const SizedBox(height: 16),
                           Text(
-                            'Mapa do Google',
+                            AppStrings.googleMap,
                             style: TextStyle(
                               color: Colors.white.withOpacity(0.7),
                               fontSize: 16,
@@ -72,7 +73,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                     children: [
                       // Headquarter
                       const Text(
-                        'Headquarter',
+                        AppStrings.headquarter,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
@@ -108,7 +109,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                       
                       // Base Tech
                       const Text(
-                        'Base Tech',
+                        AppStrings.baseTech,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
@@ -144,7 +145,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                       
                       // Contato
                       const Text(
-                        'Contato',
+                        AppStrings.contactFooter,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
@@ -204,7 +205,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'Agende uma conversa',
+                        AppStrings.scheduleConversation,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 32,
@@ -232,7 +233,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                             child: TextField(
                               controller: _emailController,
                               decoration: InputDecoration(
-                                hintText: 'Deixe seu email',
+                                hintText: AppStrings.emailPlaceholder,
                                 hintStyle: TextStyle(
                                   color: Colors.white.withOpacity(0.7),
                                 ),
@@ -280,7 +281,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                                   vertical: 16,
                                 ),
                               ),
-                              child: const Text('QUERO FALAR'),
+                              child: const Text(AppStrings.talkButton),
                             ),
                           ),
                         ],
@@ -298,7 +299,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                           ),
                           const SizedBox(width: 8),
                           Text(
-                            'Iremos retornar o quanto antes',
+                            AppStrings.returnMessage,
                             style: TextStyle(
                               color: Colors.white.withOpacity(0.7),
                               fontSize: 12,
@@ -356,7 +357,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                     TextButton(
                       onPressed: () {},
                       child: const Text(
-                        'Termos',
+                        AppStrings.terms,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14,
@@ -379,7 +380,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                 
                 // Logo Dseven
                 Text(
-                  'Dseven',
+                  AppStrings.appName,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,

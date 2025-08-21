@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_strings.dart';
 
 class ClientsSectionWidget extends StatelessWidget {
   const ClientsSectionWidget({super.key});
@@ -14,7 +15,7 @@ class ClientsSectionWidget extends StatelessWidget {
           child: Column(
             children: [
                               Text(
-                  'CLIENTES QUE CONFIAM NA DSEVEN',
+                  AppStrings.clientsTrustTitle,
                   style: TextStyle(
                     color: const Color(0xFF2196F3),
                   fontSize: 16,
@@ -30,11 +31,11 @@ class ClientsSectionWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildClientLogo('Porto Seguro', Icons.security),
-                  _buildClientLogo('Red Bull', Icons.sports_motorsports),
-                  _buildClientLogo('Globo', Icons.public),
-                  _buildClientLogo('TIM', Icons.signal_cellular_4_bar),
-                  _buildClientLogo('Carrefour', Icons.shopping_cart),
+                  _buildClientLogo(AppStrings.clientPortoSeguro, Icons.security),
+                  _buildClientLogo(AppStrings.clientRedBull, Icons.sports_motorsports),
+                  _buildClientLogo(AppStrings.clientGlobo, Icons.public),
+                  _buildClientLogo(AppStrings.clientTim, Icons.signal_cellular_4_bar),
+                  _buildClientLogo(AppStrings.clientCarrefour, Icons.shopping_cart),
                 ],
               ),
             ],
@@ -48,7 +49,7 @@ class ClientsSectionWidget extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'NOSSA EMPRESA EM NÚMEROS',
+                AppStrings.companyNumbersTitle,
                 style: TextStyle(
                   color: const Color(0xFF2196F3),
                   fontSize: 16,
@@ -60,7 +61,7 @@ class ClientsSectionWidget extends StatelessWidget {
               const SizedBox(height: 16),
               
               const Text(
-                'Resultados de Confiança',
+                AppStrings.companyResultsTitle,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 48,
@@ -72,7 +73,7 @@ class ClientsSectionWidget extends StatelessWidget {
               const SizedBox(height: 16),
               
               const Text(
-                'Solidez construída em cima de resultados.',
+                AppStrings.companyResultsDescription,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
@@ -90,25 +91,25 @@ class ClientsSectionWidget extends StatelessWidget {
                     context,
                     Icons.access_time,
                     '20',
-                    'Anos no mercado',
+                    AppStrings.yearsInMarket,
                   ),
                   _buildStatCard(
                     context,
                     Icons.engineering,
                     '800',
-                    'Engenheiros Especialistas',
+                    AppStrings.specialistEngineers,
                   ),
                   _buildStatCard(
                     context,
                     Icons.groups,
                     '2,500',
-                    'Projetos de Sucesso',
+                    AppStrings.successfulProjects,
                   ),
                   _buildStatCard(
                     context,
                     Icons.attach_money,
                     '120',
-                    'Milhões em Valuation',
+                    AppStrings.millionsValuation,
                   ),
                 ],
               ),
@@ -128,7 +129,7 @@ class ClientsSectionWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     const Text(
-                      '"Nós realizamos grandes transformações, levamos a evolução digital aos nossos clientes através de tecnologias inovadoras."',
+                      AppStrings.testimonialQuote,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,

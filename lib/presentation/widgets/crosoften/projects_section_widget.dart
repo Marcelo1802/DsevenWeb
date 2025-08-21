@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'project_carousel_widget.dart';
+import '../../../core/constants/app_strings.dart';
 
 class ProjectsSectionWidget extends StatelessWidget {
   const ProjectsSectionWidget({super.key});
@@ -13,7 +14,7 @@ class ProjectsSectionWidget extends StatelessWidget {
         children: [
           // Título da seção
           Text(
-            'RECENT WORK',
+            AppStrings.projectsTitle,
             style: TextStyle(
               color: const Color(0xFF2196F3),
               fontSize: 16,
@@ -25,7 +26,7 @@ class ProjectsSectionWidget extends StatelessWidget {
           const SizedBox(height: 16),
           
           Text(
-            'Innovative Projects, Amazing Results',
+            AppStrings.projectsSubtitle,
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
               fontSize: 48,
             ),
@@ -35,7 +36,7 @@ class ProjectsSectionWidget extends StatelessWidget {
           const SizedBox(height: 16),
           
           Text(
-            'Transforming ideas into successful digital solutions.',
+            AppStrings.projectsDescription,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: Colors.grey[600],
             ),
@@ -60,7 +61,7 @@ class ProjectsSectionWidget extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'DSEVEN PODCAST',
+                  AppStrings.podcastTitle,
                   style: TextStyle(
                     color: const Color(0xFF2196F3),
                     fontSize: 16,
@@ -72,7 +73,7 @@ class ProjectsSectionWidget extends StatelessWidget {
                 const SizedBox(height: 16),
                 
                 const Text(
-                  'Step by step guide to create an application.',
+                  AppStrings.podcastSubtitle,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 36,
@@ -101,7 +102,7 @@ class ProjectsSectionWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         const Text(
-                          'Dseven PodCast - Step by step guide to create an application.',
+                          AppStrings.podcastVideoTitle,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,

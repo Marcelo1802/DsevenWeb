@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_strings.dart';
 
 class ProjectCarouselWidget extends StatefulWidget {
   const ProjectCarouselWidget({super.key});
@@ -13,27 +14,27 @@ class _ProjectCarouselWidgetState extends State<ProjectCarouselWidget> {
 
   final List<ProjectData> projects = [
     ProjectData(
-      title: 'E-Commerce Platform',
-      description: 'A comprehensive e-commerce solution with advanced features including inventory management, payment processing, and customer analytics. Built with scalable architecture to handle thousands of concurrent users.',
-      features: ['Mobile Responsive', 'Payment Integration', 'Real-time Analytics', 'Inventory Management'],
+      title: AppStrings.projectEcommerce,
+      description: AppStrings.projectEcommerceDesc,
+      features: AppStrings.ecommerceFeatures,
       color: const Color(0xFF2196F3),
     ),
     ProjectData(
-      title: 'Healthcare Management System',
-      description: 'Digital healthcare platform connecting patients with medical professionals through secure video consultations, appointment scheduling, and electronic health records management.',
-      features: ['Telemedicine', 'Appointment Booking', 'Electronic Records', 'Secure Messaging'],
+      title: AppStrings.projectHealthcare,
+      description: AppStrings.projectHealthcareDesc,
+      features: AppStrings.healthcareFeatures,
       color: const Color(0xFF4CAF50),
     ),
     ProjectData(
-      title: 'Financial Trading App',
-      description: 'Advanced trading platform with real-time market data, portfolio management, and AI-powered investment recommendations for both beginner and professional traders.',
-      features: ['Real-time Trading', 'Portfolio Analytics', 'AI Recommendations', 'Market Insights'],
+      title: AppStrings.projectFinance,
+      description: AppStrings.projectFinanceDesc,
+      features: AppStrings.financeFeatures,
       color: const Color(0xFFFF9800),
     ),
     ProjectData(
-      title: 'Education Learning Platform',
-      description: 'Interactive online learning platform with video courses, live sessions, progress tracking, and certification programs for students and professionals.',
-      features: ['Video Streaming', 'Live Classes', 'Progress Tracking', 'Certification'],
+      title: AppStrings.projectEducation,
+      description: AppStrings.projectEducationDesc,
+      features: AppStrings.educationFeatures,
       color: const Color(0xFF9C27B0),
     ),
   ];
@@ -101,12 +102,12 @@ class _ProjectCarouselWidgetState extends State<ProjectCarouselWidget> {
                 children: [
                   ElevatedButton(
                     onPressed: () {},
-                    child: const Text('View Project'),
+                    child: const Text(AppStrings.projectViewButton),
                   ),
                   const SizedBox(width: 16),
                   OutlinedButton(
                     onPressed: () {},
-                    child: const Text('Live Demo'),
+                    child: const Text(AppStrings.projectDemoButton),
                   ),
                 ],
               ),
@@ -226,7 +227,7 @@ class _ProjectCarouselWidgetState extends State<ProjectCarouselWidget> {
                       const SizedBox(height: 24),
                       
                       Text(
-                        'Project Showcase',
+                        AppStrings.projectShowcaseTitle,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
@@ -237,7 +238,7 @@ class _ProjectCarouselWidgetState extends State<ProjectCarouselWidget> {
                       const SizedBox(height: 12),
                       
                       Text(
-                        'Interactive Demo Available',
+                        AppStrings.projectDemoAvailable,
                         style: TextStyle(
                           color: Colors.white.withOpacity(0.9),
                           fontSize: 16,

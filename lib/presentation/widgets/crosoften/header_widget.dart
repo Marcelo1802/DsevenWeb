@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_strings.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
@@ -24,13 +25,13 @@ class HeaderWidget extends StatelessWidget {
                   ),
                   padding: const EdgeInsets.all(8),
                   child: Image.asset(
-                    'assets/DsevensenLogo.png',
+                    AppStrings.logoAssetPath,
                     fit: BoxFit.contain,
                   ),
                 ),
                 const SizedBox(width: 16),
                 const Text(
-                  'Dseven',
+                  AppStrings.appName,
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -46,11 +47,11 @@ class HeaderWidget extends StatelessWidget {
             // Menu à direita
             Row(
               children: [
-                _buildMenuItem('assets/icons/init.png', 'Home'),
-                _buildMenuItem('assets/icons/sobre.png', 'About'),
-                _buildMenuItem('assets/icons/servicos.png', 'Services'),
-                _buildMenuItem('assets/icons/projetos.png', 'Projects'),
-                _buildMenuItem('assets/icons/contato.png', 'Contact'),
+                _buildMenuItem(AppStrings.homeIconPath, AppStrings.menuHome),
+                _buildMenuItem(AppStrings.aboutIconPath, AppStrings.menuAbout),
+                _buildMenuItem(AppStrings.servicesIconPath, AppStrings.menuServices),
+                _buildMenuItem(AppStrings.projectsIconPath, AppStrings.menuProjects),
+                _buildMenuItem(AppStrings.contactIconPath, AppStrings.menuContact),
               ],
             ),
           ],

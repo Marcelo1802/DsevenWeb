@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_strings.dart';
 
 class HeroSectionWidget extends StatelessWidget {
   const HeroSectionWidget({super.key});
@@ -36,8 +37,8 @@ class HeroSectionWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Título Principal com destaque
-                    Text(
-                      'Innovative Software Solutions for Your Business',
+                            Text(
+                      AppStrings.heroTitle,
                       style: Theme.of(context).textTheme.displayLarge?.copyWith(
                         fontSize: 58,
                         fontWeight: FontWeight.w900,
@@ -98,8 +99,8 @@ class HeroSectionWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: Text(
-                        'Transform your ideas into reality with our expert software development services. We specialize in creating custom applications tailored to your unique business needs.',
+                                child: Text(
+            AppStrings.heroDescription,
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: Colors.white,
                           fontSize: 20,
@@ -177,7 +178,7 @@ class HeroSectionWidget extends StatelessWidget {
                               ],
                             ),
                           ),
-                          child: const Text('Get a Free Consultation'),
+                          child: const Text(AppStrings.heroButtonText),
                         ),
                       ),
                     ),

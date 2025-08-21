@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_strings.dart';
 
 class ServicesSectionWidget extends StatelessWidget {
   const ServicesSectionWidget({super.key});
@@ -45,31 +46,31 @@ class ServicesSectionWidget extends StatelessWidget {
               _buildServiceCard(
                 context,
                 Icons.lightbulb_outline,
-                'Product Thinking',
+                AppStrings.productThinking,
                 'Estruturação de produtos digitais inovadores, monetizáveis e escaláveis.',
               ),
               _buildServiceCard(
                 context,
                 Icons.design_services,
-                'Ux e Design',
+                AppStrings.uxDesign,
                 'Criação de experiências de usuário com foco em retenção e conforto.',
               ),
               _buildServiceCard(
                 context,
                 Icons.phone_android,
-                'Mobile App',
+                AppStrings.mobileApp,
                 'Desenvolvimento Android e iOS, aplicativos híbridos e nativos, com soluções personalizadas.',
               ),
               _buildServiceCard(
                 context,
                 Icons.web,
-                'Web App',
+                AppStrings.webApp,
                 'Desenvolvimento Angular, React, Vue, plataformas Web e aplicativos responsivos.',
               ),
               _buildServiceCard(
                 context,
                 Icons.storage,
-                'Database',
+                AppStrings.database,
                 'Bancos de dados relacionais, não relacionais, elásticos e LGPD compliance.',
               ),
               _buildServiceCard(
@@ -101,7 +102,7 @@ class ServicesSectionWidget extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'NOSSO PROCESSO',
+                  AppStrings.servicesProcessTitle,
                   style: TextStyle(
                     color: const Color(0xFF2196F3),
                     fontSize: 16,
@@ -175,7 +176,7 @@ class ServicesSectionWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 24),
                           Text(
-                            'PROPOSTA',
+                            AppStrings.proposalTitle,
                             style: TextStyle(
                               color: const Color(0xFF2196F3),
                               fontSize: 14,

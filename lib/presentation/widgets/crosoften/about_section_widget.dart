@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_strings.dart';
 
 class AboutSectionWidget extends StatelessWidget {
   const AboutSectionWidget({super.key});
@@ -12,7 +13,7 @@ class AboutSectionWidget extends StatelessWidget {
         children: [
           // Título da seção
           Text(
-            'CONHEÇA MAIS SOBRE NÓS',
+            AppStrings.aboutSectionTitle,
             style: TextStyle(
               color: const Color(0xFF2196F3),
               fontSize: 16,
@@ -24,7 +25,7 @@ class AboutSectionWidget extends StatelessWidget {
           const SizedBox(height: 16),
           
           Text(
-            'Entre as 3 maiores do mundo',
+            AppStrings.aboutMainTitle,
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
               fontSize: 48,
             ),
@@ -34,7 +35,7 @@ class AboutSectionWidget extends StatelessWidget {
           const SizedBox(height: 32),
           
           Text(
-            'Estamos entre as 3 empresas do mundo, com maior volume de projetos, isso\nsignifica expertise em resolver problemas e desenvolver tecnologias de ponta.\nSabemos os melhores caminhos.',
+            AppStrings.aboutDescription,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               height: 1.6,
             ),
@@ -73,7 +74,7 @@ class AboutSectionWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'CONSULTORIA TECH',
+                      AppStrings.consultingTitle,
                       style: TextStyle(
                         color: const Color(0xFF2196F3),
                         fontSize: 14,
@@ -85,7 +86,7 @@ class AboutSectionWidget extends StatelessWidget {
                     const SizedBox(height: 16),
                     
                     Text(
-                      'Ajudamos sua empresa\na tomar as melhores\ndecisões',
+                      AppStrings.consultingSubtitle,
                       style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                         fontSize: 40,
                         height: 1.2,
@@ -95,7 +96,7 @@ class AboutSectionWidget extends StatelessWidget {
                     const SizedBox(height: 24),
                     
                     Text(
-                      'Ao desenvolver um produto de tecnologia, diversos desafios são enfrentados ao longo do caminho, nós ajudamos sua empresa a escolher os caminhos mais curtos e que dão resultados reais.',
+                      AppStrings.consultingDescription,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         height: 1.6,
                       ),
@@ -111,14 +112,14 @@ class AboutSectionWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Criatividade',
+                                AppStrings.creativityTitle,
                                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                                   fontSize: 20,
                                 ),
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                'Times criativos com alta capacidade de inovação e desenvolvimento.',
+                                AppStrings.creativityDescription,
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                   height: 1.5,
                                 ),
@@ -134,14 +135,14 @@ class AboutSectionWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Gestão de Riscos',
+                                AppStrings.riskManagementTitle,
                                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                                   fontSize: 20,
                                 ),
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                'Engenheiros com alta bagagem de projetos e conhecimento tech.',
+                                AppStrings.riskManagementDescription,
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                   height: 1.5,
                                 ),
@@ -161,14 +162,14 @@ class AboutSectionWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Expertise',
+                                AppStrings.expertiseTitle,
                                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                                   fontSize: 20,
                                 ),
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                'Experiência em volume, alta capacidade de resolução e construção de projetos.',
+                                AppStrings.expertiseDescription,
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                   height: 1.5,
                                 ),
@@ -184,14 +185,14 @@ class AboutSectionWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Suporte',
+                                AppStrings.supportTitle,
                                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                                   fontSize: 20,
                                 ),
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                'Apoio constante, consultoria sob medida, parceria de longo prazo.',
+                                AppStrings.supportDescription,
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                   height: 1.5,
                                 ),
