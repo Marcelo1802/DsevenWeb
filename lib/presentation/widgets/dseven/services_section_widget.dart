@@ -1,0 +1,208 @@
+import 'package:flutter/material.dart';
+import '../../../core/constants/app_strings.dart';
+import '../common/animated_hover_card.dart';
+
+class ServicesSectionWidget extends StatelessWidget {
+  const ServicesSectionWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 80),
+      color: Colors.grey[50],
+      child: Column(
+        children: [
+          // Título da seção
+          Text(
+            'SERVIÇOS SOB MEDIDA',
+            style: TextStyle(
+              color: const Color(0xFF2196F3),
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 2,
+            ),
+          ),
+          
+          const SizedBox(height: 16),
+          
+          Text(
+            'Soluções Para Seu Negócio Crescer',
+            style: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 48,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          
+          const SizedBox(height: 80),
+          
+          // Grid de serviços
+          GridView.count(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            crossAxisCount: 4,
+            crossAxisSpacing: 24,
+            mainAxisSpacing: 24,
+            childAspectRatio: 0.9,
+            children: [
+              _buildServiceCard(
+                context,
+                Icons.lightbulb_outline,
+                AppStrings.productThinking,
+                'Estruturação de produtos digitais inovadores, monetizáveis e escaláveis.',
+              ),
+              _buildServiceCard(
+                context,
+                Icons.design_services,
+                AppStrings.uxDesign,
+                'Criação de experiências de usuário com foco em retenção e conforto.',
+              ),
+              _buildServiceCard(
+                context,
+                Icons.phone_android,
+                AppStrings.mobileApp,
+                'Desenvolvimento Android e iOS, aplicativos híbridos e nativos, com soluções personalizadas.',
+              ),
+              _buildServiceCard(
+                context,
+                Icons.web,
+                AppStrings.webApp,
+                'Desenvolvimento Angular, React, Vue, plataformas Web e aplicativos responsivos.',
+              ),
+              _buildServiceCard(
+                context,
+                Icons.storage,
+                AppStrings.database,
+                'Bancos de dados relacionais, não relacionais, elásticos e LGPD compliance.',
+              ),
+              _buildServiceCard(
+                context,
+                Icons.integration_instructions,
+                'Integração',
+                'Desenvolvimento de integrações entre softwares, ERP, CRM, Gateways.',
+              ),
+              _buildServiceCard(
+                context,
+                Icons.verified_user,
+                'Garantia de 5 anos',
+                'Resolução de bugs e defeitos sem custo, garantindo disponibilidade.',
+              ),
+              _buildServiceCard(
+                context,
+                Icons.trending_up,
+                'Evolução Contínua',
+                'Suporte e execução de roadmaps de evolução de produtos digitais.',
+              ),
+            ],
+          ),
+
+        ],
+      ),
+    );
+  }
+
+  Widget _buildServiceCard(BuildContext context, IconData icon, String title, String description) {
+    return ServiceCard(
+      icon: icon,
+      title: title,
+      description: description,
+    );
+  }
+}
+
+class ServiceCard extends StatefulWidget {
+  final IconData icon;
+  final String title;
+  final String description;
+
+  const ServiceCard({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.description,
+  });
+
+  @override
+  State<ServiceCard> createState() => _ServiceCardState();
+}
+
+class _ServiceCardState extends State<ServiceCard> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final isBlue = _isHovered;
+    
+    final textColor = isBlue ? Colors.white : Colors.black;
+    final iconColor = isBlue ? Colors.white : const Color(0xFF2196F3);
+    final iconBgColor = isBlue 
+        ? Colors.white.withOpacity(0.2)
+        : const Color(0xFF2196F3).withOpacity(0.1);
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.all(24),
+        decoration: BoxDecoration(
+          color: isBlue ? const Color(0xFF2196F3) : Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(_isHovered ? 0.15 : 0.08),
+              blurRadius: _isHovered ? 15 : 8,
+              offset: Offset(0, _isHovered ? 6 : 3),
+            ),
+          ],
+        ),
+        transform: Matrix4.identity()..scale(_isHovered ? 1.02 : 1.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: iconBgColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Icon(
+                widget.icon,
+                color: iconColor,
+                size: 32,
+              ),
+            ),
+            const SizedBox(height: 20),
+            AnimatedDefaultTextStyle(
+              duration: const Duration(milliseconds: 200),
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: textColor,
+              ) ?? TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: textColor,
+              ),
+              child: Text(widget.title),
+            ),
+            const SizedBox(height: 12),
+            AnimatedDefaultTextStyle(
+              duration: const Duration(milliseconds: 200),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                height: 1.4,
+                fontSize: 14,
+                color: isBlue ? Colors.white.withOpacity(0.9) : Colors.grey[600],
+              ) ?? TextStyle(
+                height: 1.4,
+                fontSize: 14,
+                color: isBlue ? Colors.white.withOpacity(0.9) : Colors.grey[600],
+              ),
+              child: Text(widget.description),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

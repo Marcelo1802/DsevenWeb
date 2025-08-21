@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'views/crosoften_home_view.dart';
+import 'views/dseven_home_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const CroSoftenHomeView(),
+      home: const DsevenHomeView(),
     );
   }
 }
