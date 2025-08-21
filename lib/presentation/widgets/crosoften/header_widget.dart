@@ -8,86 +8,99 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      color: const Color.fromARGB(255, 255, 255, 255),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [
+            Color(0xFFFFFFFF), // Branco à esquerda
+            Color.fromARGB(255, 255, 255, 255), // Azul à direita
+          ],
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Row(
           children: [
-            // Logo e Texto à esquerda
+            // Logo à esquerda
+            Container(
+              height: 60,
+              width: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: const Color.fromARGB(255, 8, 0, 0).withOpacity(0.1),
+              ),
+              padding: const EdgeInsets.all(8),
+              child: Image.asset(
+                AppStrings.logoAssetPath,
+                fit: BoxFit.contain,
+              ),
+            ),
+            
+            // Imagem Dseven centralizada
+            Expanded(
+              child: Center(
+                child: Image.asset(
+                  AppStrings.dsevenImagePath,
+                  height: 50,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            
+            // Redes sociais e botão à direita
             Row(
               children: [
-                Container(
-                  height: 60,
-                  width: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: const Color.fromARGB(255, 8, 0, 0).withOpacity(0.1),
+                // Instagram
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.camera_alt_outlined,
+                    color: Color.fromARGB(255, 0, 119, 246),
+                    size: 24,
                   ),
-                  padding: const EdgeInsets.all(8),
-                  child: Image.asset(
-                    AppStrings.logoAssetPath,
-                    fit: BoxFit.contain,
+                ),
+                // LinkedIn
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.business_center_outlined,
+                    color: Color.fromARGB(255, 0, 119, 246),
+                    size: 24,
+                  ),
+                ),
+                // Facebook
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.facebook_outlined,
+                    color: Color.fromARGB(255, 0, 119, 246),
+                    size: 24,
                   ),
                 ),
                 const SizedBox(width: 16),
-                const Text(
-                  AppStrings.appName,
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 64, 255),
+                // Botão Entre em Contato
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 0, 119, 255), // azul como na imagem
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                  ),
+                  child: const Text(
+                    'ENTRE EM CONTATO',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ],
             ),
-            
-            // Espaçador
-            const Spacer(),
-            
-            // Menu à direita
-            Row(
-              children: [
-                _buildMenuItem(AppStrings.homeIconPath, AppStrings.menuHome),
-                _buildMenuItem(AppStrings.aboutIconPath, AppStrings.menuAbout),
-                _buildMenuItem(AppStrings.servicesIconPath, AppStrings.menuServices),
-                _buildMenuItem(AppStrings.projectsIconPath, AppStrings.menuProjects),
-                _buildMenuItem(AppStrings.contactIconPath, AppStrings.menuContact),
-              ],
-            ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildMenuItem(String iconPath, String label) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: InkWell(
-        onTap: () {},
-        borderRadius: BorderRadius.circular(8),
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                iconPath,
-                height: 32,
-                width: 32,
-                fit: BoxFit.contain,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                label,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );

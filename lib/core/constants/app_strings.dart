@@ -152,6 +152,7 @@ class AppStrings {
 
   // Asset Paths
   static const String logoAssetPath = 'assets/DsevensenLogo.png';
+  static const String dsevenImagePath = 'assets/Dseven.png';
   static const String bannerAssetPath = 'assets/banner.png';
   static const String homeIconPath = 'assets/icons/init.png';
   static const String aboutIconPath = 'assets/icons/sobre.png';
