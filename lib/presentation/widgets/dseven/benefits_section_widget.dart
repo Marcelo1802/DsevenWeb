@@ -65,18 +65,18 @@ class BenefitsSectionWidget extends StatelessWidget {
           StaggeredAnimationList(
             children: [
               ProcessCard(
-                icon: Icons.refresh,
+                iconPath: AppStrings.refreshIconPath,
                 title: AppStrings.reviewTitle,
                 description: AppStrings.reviewDescription,
                 isHighlighted: true, // Primeiro card destacado
               ),
               ProcessCard(
-                icon: Icons.security,
+                iconPath: AppStrings.projectIconPath,
                 title: AppStrings.riskMitigationTitle,
                 description: AppStrings.riskMitigationDescription,
               ),
               ProcessCard(
-                icon: Icons.speed,
+                iconPath: AppStrings.gaugeIconPath,
                 title: AppStrings.agileDeliveryTitle,
                 description: AppStrings.agileDeliveryDescription,
               ),

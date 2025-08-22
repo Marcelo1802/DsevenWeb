@@ -4,7 +4,7 @@ import 'animated_hover_card.dart';
 import 'staggered_animation_list.dart';
 
 class ProcessCard extends StatefulWidget {
-  final IconData icon;
+  final String iconPath;
   final String title;
   final String description;
   final Color? iconColor;
@@ -12,7 +12,7 @@ class ProcessCard extends StatefulWidget {
 
   const ProcessCard({
     super.key,
-    required this.icon,
+    required this.iconPath,
     required this.title,
     required this.description,
     this.iconColor,
@@ -75,10 +75,18 @@ class _ProcessCardState extends State<ProcessCard> {
                     : const Color(0xFF2196F3).withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Icon(
-                widget.icon,
-                size: 32,
-                color: iconColorFinal,
+              child: Image.asset(
+                widget.iconPath,
+                width: 80,
+                height: 80,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  return Icon(
+                    Icons.error,
+                    size: 80,
+                    color: iconColorFinal,
+                  );
+                },
               ),
             ),
             
@@ -155,18 +163,18 @@ class ProcessCardsSection extends StatelessWidget {
           StaggeredAnimationList(
             children: [
               ProcessCard(
-                icon: Icons.refresh,
+                iconPath: AppStrings.refreshIconPath,
                 title: AppStrings.reviewTitle,
                 description: AppStrings.reviewDescription,
                 isHighlighted: true, // Primeiro card destacado
               ),
               ProcessCard(
-                icon: Icons.security,
+                iconPath: AppStrings.projectIconPath,
                 title: AppStrings.riskMitigationTitle,
                 description: AppStrings.riskMitigationDescription,
               ),
               ProcessCard(
-                icon: Icons.speed,
+                iconPath: AppStrings.gaugeIconPath,
                 title: AppStrings.agileDeliveryTitle,
                 description: AppStrings.agileDeliveryDescription,
               ),
