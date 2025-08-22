@@ -8,7 +8,7 @@ class AboutSectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 80),
-      color: Colors.white,
+      color: const Color(0xFF1A1A2E),
       child: Column(
         children: [
           // Título da seção
@@ -28,6 +28,7 @@ class AboutSectionWidget extends StatelessWidget {
             AppStrings.aboutMainTitle,
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
               fontSize: 48,
+              color: Colors.white,
             ),
             textAlign: TextAlign.center,
           ),
@@ -38,6 +39,7 @@ class AboutSectionWidget extends StatelessWidget {
             AppStrings.aboutDescription,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               height: 1.6,
+              color: Colors.white.withOpacity(0.6),
             ),
             textAlign: TextAlign.center,
           ),
@@ -116,6 +118,7 @@ class AboutSectionWidget extends StatelessWidget {
                       style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                         fontSize: 40,
                         height: 1.2,
+                        color: Colors.white,
                       ),
                     ),
                     
@@ -125,6 +128,7 @@ class AboutSectionWidget extends StatelessWidget {
                       AppStrings.consultingDescription,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         height: 1.6,
+                        color: Colors.white.withOpacity(0.6),
                       ),
                     ),
                     
@@ -141,6 +145,7 @@ class AboutSectionWidget extends StatelessWidget {
                                 AppStrings.creativityTitle,
                                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                                   fontSize: 20,
+                                  color: Colors.white,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -148,6 +153,7 @@ class AboutSectionWidget extends StatelessWidget {
                                 AppStrings.creativityDescription,
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                   height: 1.5,
+                                  color: Colors.white.withOpacity(0.6),
                                 ),
                               ),
                               
@@ -157,6 +163,7 @@ class AboutSectionWidget extends StatelessWidget {
                                 AppStrings.expertiseTitle,
                                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                                   fontSize: 20,
+                                  color: Colors.white,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -164,6 +171,7 @@ class AboutSectionWidget extends StatelessWidget {
                                 AppStrings.expertiseDescription,
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                   height: 1.5,
+                                  color: Colors.white.withOpacity(0.6),
                                 ),
                               ),
                             ],
@@ -180,6 +188,7 @@ class AboutSectionWidget extends StatelessWidget {
                                 AppStrings.riskManagementTitle,
                                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                                   fontSize: 20,
+                                  color: Colors.white,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -187,6 +196,7 @@ class AboutSectionWidget extends StatelessWidget {
                                 AppStrings.riskManagementDescription,
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                   height: 1.5,
+                                  color: Colors.white.withOpacity(0.6),
                                 ),
                               ),
                               
@@ -196,6 +206,7 @@ class AboutSectionWidget extends StatelessWidget {
                                 AppStrings.supportTitle,
                                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                                   fontSize: 20,
+                                  color: Colors.white,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -203,6 +214,7 @@ class AboutSectionWidget extends StatelessWidget {
                                 AppStrings.supportDescription,
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                   height: 1.5,
+                                  color: Colors.white.withOpacity(0.6),
                                 ),
                               ),
                             ],

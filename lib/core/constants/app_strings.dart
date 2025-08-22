@@ -194,6 +194,9 @@ class AppStrings {
   static const String servicesIconPath = 'assets/icons/servicos.png';
   static const String projectsIconPath = 'assets/icons/projetos.png';
   static const String contactIconPath = 'assets/icons/contato.png';
+  static const String instagramIconPath = 'assets/icons/instagram.png';
+  static const String linkedinIconPath = 'assets/icons/linkedin.png';
+  static const String facebookIconPath = 'assets/icons/facebook.png';
 
   // Error Messages
   static const String serverFailureMessage = 'Erro do servidor. Tente novamente mais tarde.';

@@ -95,7 +95,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                           const SizedBox(width: 8),
                           const Expanded(
                             child: Text(
-                              'Av. Engenheiro Luís Carlos Berrini,\n1140 - 7° Andar, São Paulo - SP',
+                              'Av. Nome Sobrenome,\n0000 - 0° Andar, São Paulo - SP',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
@@ -131,7 +131,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                           const SizedBox(width: 8),
                           const Expanded(
                             child: Text(
-                              'Av. dos Vinhedos, 21 - Segundo\nandar, sala 01 - Karaíba,\nUberlândia - MG',
+                              'Av. Nome Sobrenome, 00 - numero\nandar, sala 00 - Bairro,\nUberlândia - MG',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
@@ -185,7 +185,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                           ),
                           const SizedBox(width: 8),
                           const Text(
-                            '11 99026 3989',
+                            '34 99999 9999',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 14,
@@ -295,14 +295,14 @@ class _FooterWidgetState extends State<FooterWidget> {
                         children: [
                           Icon(
                             Icons.warning,
-                            color: Colors.white.withOpacity(0.7),
+                            color: const Color.fromARGB(255, 255, 0, 0).withOpacity(0.7),
                             size: 16,
                           ),
                           const SizedBox(width: 8),
                           Text(
                             AppStrings.returnMessage,
                             style: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
+                              color: Colors.white.withOpacity(0.6),
                               fontSize: 12,
                             ),
                           ),
@@ -325,11 +325,11 @@ class _FooterWidgetState extends State<FooterWidget> {
                       
                       Row(
                         children: [
-                          _buildSocialIcon(Icons.camera_alt),
+                          _buildSocialIcon(AppStrings.instagramIconPath),
                           const SizedBox(width: 16),
-                          _buildSocialIcon(Icons.business),
+                          _buildSocialIcon(AppStrings.linkedinIconPath),
                           const SizedBox(width: 16),
-                          _buildSocialIcon(Icons.facebook),
+                          _buildSocialIcon(AppStrings.facebookIconPath),
                         ],
                       ),
                     ],
@@ -414,21 +414,34 @@ class _FooterWidgetState extends State<FooterWidget> {
     );
   }
 
-  Widget _buildSocialIcon(IconData icon) {
-    return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.white.withOpacity(0.3),
-          width: 1,
+  Widget _buildSocialIcon(String iconPath) {
+    return InkWell(
+      onTap: () {
+        // TODO: Abrir link da rede social
+      },
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.white.withOpacity(0.3),
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(20),
         ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Icon(
-        icon,
-        color: Colors.white,
-        size: 20,
+        padding: const EdgeInsets.all(8),
+        child: Image.asset(
+          iconPath,
+          fit: BoxFit.contain,
+          errorBuilder: (context, error, stackTrace) {
+            return Icon(
+              Icons.error,
+              color: Colors.white,
+              size: 20,
+            );
+          },
+        ),
       ),
     );
   }

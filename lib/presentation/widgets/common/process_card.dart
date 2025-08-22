@@ -47,7 +47,7 @@ class _ProcessCardState extends State<ProcessCard> {
       onExit: (_) => setState(() => _isHovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        width: 300,
+        width: double.infinity, // Ocupar toda a largura disponível
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
           color: cardColor,

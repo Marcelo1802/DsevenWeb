@@ -8,11 +8,23 @@ class BenefitsSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 80),
-      color: Colors.grey[50],
-      child: Column(
-        children: [
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Padding responsivo baseado na largura da tela
+        final horizontalPadding = constraints.maxWidth > 1200 
+            ? 80.0 
+            : constraints.maxWidth > 768 
+                ? 40.0 
+                : 20.0;
+        
+        return Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: horizontalPadding, 
+            vertical: 80
+          ),
+          color: Colors.grey[50],
+          child: Column(
+            children: [
           // Título da seção
           Text(
             'NOSSO DIFERENCIAL',
@@ -71,7 +83,9 @@ class BenefitsSectionWidget extends StatelessWidget {
             ],
           ),
         ],
-      ),
+          ),
+        );
+      },
     );
   }
 }

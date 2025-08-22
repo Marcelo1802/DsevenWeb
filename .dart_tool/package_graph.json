@@ -14,7 +14,8 @@
         "http",
         "json_annotation",
         "provider",
-        "shared_preferences"
+        "shared_preferences",
+        "visibility_detector"
       ],
       "devDependencies": [
         "build_runner",
@@ -123,6 +124,13 @@
         "test_api",
         "vector_math",
         "vm_service"
+      ]
+    },
+    {
+      "name": "visibility_detector",
+      "version": "0.4.0+2",
+      "dependencies": [
+        "flutter"
       ]
     },
     {
