@@ -61,21 +61,21 @@ class CompanyValuesSectionWidget extends StatelessWidget {
                     '1',
                     AppStrings.principle1Title,
                     AppStrings.principle1Description,
-                    Icons.lightbulb_outline,
+                    AppStrings.lightIconPath,
                   ),
                   _buildPrincipleCard(
                     context,
                     '2',
                     AppStrings.principle2Title,
                     AppStrings.principle2Description,
-                    Icons.verified_user,
+                    AppStrings.checkIconPath,
                   ),
                   _buildPrincipleCard(
                     context,
                     '3',
                     AppStrings.principle3Title,
                     AppStrings.principle3Description,
-                    Icons.speed,
+                    AppStrings.gaugeIconPath,
                   ),
                 ],
               ),
@@ -91,21 +91,21 @@ class CompanyValuesSectionWidget extends StatelessWidget {
                     '4',
                     AppStrings.principle4Title,
                     AppStrings.principle4Description,
-                    Icons.visibility,
+                    AppStrings.eyeIconPath,
                   ),
                   _buildPrincipleCard(
                     context,
                     '5',
                     AppStrings.principle5Title,
                     AppStrings.principle5Description,
-                    Icons.handshake,
+                    AppStrings.handshakeIconPath,
                   ),
                   _buildPrincipleCard(
                     context,
                     '6',
                     AppStrings.principle6Title,
                     AppStrings.principle6Description,
-                    Icons.trending_up,
+                    AppStrings.arrowIconPath,
                   ),
                 ],
               ),
@@ -119,7 +119,7 @@ class CompanyValuesSectionWidget extends StatelessWidget {
                   '7',
                   AppStrings.principle7Title,
                   AppStrings.principle7Description,
-                  Icons.rocket_launch,
+                  AppStrings.rocketIconPath,
                 ),
               ),
             ],
@@ -134,7 +134,7 @@ class CompanyValuesSectionWidget extends StatelessWidget {
     String number,
     String title,
     String description,
-    IconData icon,
+    dynamic icon,
   ) {
     return PrincipleCard(
       number: number,
@@ -149,7 +149,7 @@ class PrincipleCard extends StatefulWidget {
   final String number;
   final String title;
   final String description;
-  final IconData icon;
+  final dynamic icon; // Pode ser IconData ou String (path)
 
   const PrincipleCard({
     super.key,
@@ -219,13 +219,29 @@ class _PrincipleCardState extends State<PrincipleCard> {
                 ),
                 
                 // Ícone
-                Icon(
-                  widget.icon,
-                  color: _isHovered 
-                      ? Colors.white 
-                      : const Color(0xFF2196F3),
-                  size: 32,
-                ),
+                widget.icon is String 
+                  ? Image.asset(
+                      widget.icon,
+                      width: 60,
+                      height: 60,
+                      fit: BoxFit.contain,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Icon(
+                          Icons.error,
+                          color: _isHovered 
+                              ? Colors.white 
+                              : const Color(0xFF2196F3),
+                          size: 32,
+                        );
+                      },
+                    )
+                  : Icon(
+                      widget.icon,
+                      color: _isHovered 
+                          ? Colors.white 
+                          : const Color(0xFF2196F3),
+                      size: 32,
+                    ),
               ],
             ),
             

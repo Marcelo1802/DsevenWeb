@@ -200,6 +200,17 @@ class AppStrings {
   static const String refreshIconPath = 'assets/icons/refresh.png';
   static const String projectIconPath = 'assets/icons/project.png';
   static const String gaugeIconPath = 'assets/icons/gauge.png';
+  static const String lightIconPath = 'assets/icons/Light.png';
+  static const String designIconPath = 'assets/icons/design.png';
+  static const String iphoneIconPath = 'assets/icons/iphone.png';
+  static const String webIconPath = 'assets/icons/web.png';
+  static const String serverIconPath = 'assets/icons/server.png';
+  static const String programmerIconPath = 'assets/icons/programmer.png';
+  static const String checkIconPath = 'assets/icons/check.png';
+  static const String arrowIconPath = 'assets/icons/arrow.png';
+  static const String eyeIconPath = 'assets/icons/eye.png';
+  static const String handshakeIconPath = 'assets/icons/Handshake.png';
+  static const String rocketIconPath = 'assets/icons/rocket.png';
 
   // Error Messages
   static const String serverFailureMessage = 'Erro do servidor. Tente novamente mais tarde.';

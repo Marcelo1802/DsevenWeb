@@ -46,49 +46,49 @@ class ServicesSectionWidget extends StatelessWidget {
             children: [
               _buildServiceCard(
                 context,
-                Icons.lightbulb_outline,
+                AppStrings.lightIconPath,
                 AppStrings.productThinking,
                 'Estruturação de produtos digitais inovadores, monetizáveis e escaláveis.',
               ),
               _buildServiceCard(
                 context,
-                Icons.design_services,
+                AppStrings.designIconPath,
                 AppStrings.uxDesign,
                 'Criação de experiências de usuário com foco em retenção e conforto.',
               ),
               _buildServiceCard(
                 context,
-                Icons.phone_android,
+                AppStrings.iphoneIconPath,
                 AppStrings.mobileApp,
                 'Desenvolvimento Android e iOS, aplicativos híbridos e nativos, com soluções personalizadas.',
               ),
               _buildServiceCard(
                 context,
-                Icons.web,
+                AppStrings.webIconPath,
                 AppStrings.webApp,
                 'Desenvolvimento Angular, React, Vue, plataformas Web e aplicativos responsivos.',
               ),
               _buildServiceCard(
                 context,
-                Icons.storage,
+                AppStrings.serverIconPath,
                 AppStrings.database,
                 'Bancos de dados relacionais, não relacionais, elásticos e LGPD compliance.',
               ),
               _buildServiceCard(
                 context,
-                Icons.integration_instructions,
+                AppStrings.programmerIconPath,
                 'Integração',
                 'Desenvolvimento de integrações entre softwares, ERP, CRM, Gateways.',
               ),
               _buildServiceCard(
                 context,
-                Icons.verified_user,
+                AppStrings.checkIconPath,
                 'Garantia de 5 anos',
                 'Resolução de bugs e defeitos sem custo, garantindo disponibilidade.',
               ),
               _buildServiceCard(
                 context,
-                Icons.trending_up,
+                AppStrings.arrowIconPath,
                 'Evolução Contínua',
                 'Suporte e execução de roadmaps de evolução de produtos digitais.',
               ),
@@ -100,7 +100,7 @@ class ServicesSectionWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildServiceCard(BuildContext context, IconData icon, String title, String description) {
+  Widget _buildServiceCard(BuildContext context, dynamic icon, String title, String description) {
     return ServiceCard(
       icon: icon,
       title: title,
@@ -110,7 +110,7 @@ class ServicesSectionWidget extends StatelessWidget {
 }
 
 class ServiceCard extends StatefulWidget {
-  final IconData icon;
+  final dynamic icon; // Pode ser IconData ou String (path)
   final String title;
   final String description;
 
@@ -166,11 +166,25 @@ class _ServiceCardState extends State<ServiceCard> {
                 color: iconBgColor,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Icon(
-                widget.icon,
-                color: iconColor,
-                size: 32,
-              ),
+              child: widget.icon is String 
+                ? Image.asset(
+                    widget.icon,
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Icon(
+                        Icons.error,
+                        color: iconColor,
+                        size: 80,
+                      );
+                    },
+                  )
+                : Icon(
+                    widget.icon,
+                    color: iconColor,
+                    size: 80,
+                  ),
             ),
             const SizedBox(height: 20),
             AnimatedDefaultTextStyle(
