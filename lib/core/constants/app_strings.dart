@@ -87,14 +87,21 @@ class AppStrings {
   static const String footerCompanyName = 'Dseven';
 
   // About Section
-  static const String aboutSectionTitle = 'CONHEÇA MAIS SOBRE NÓS';
-  static const String aboutMainTitle = 'Entre as 3 maiores do mundo';
-  static const String aboutDescription = 'Estamos entre as 3 empresas do mundo, com maior volume de projetos, isso\nsignifica expertise em resolver problemas e desenvolver tecnologias de ponta.\nSabemos os melhores caminhos.';
+  static const String aboutSectionTitle = 'SOBRE NÓS';
+  static const String aboutMainTitle = 'Transformando ideias em tecnologia';
+  static const String aboutDescription =
+    'Somos uma empresa especializada em soluções digitais que unem inovação e eficiência. '
+    'Nosso propósito é ajudar negócios a crescerem por meio da tecnologia, '
+    'oferecendo projetos sob medida, com qualidade, agilidade e resultados reais.';
+
   static const String consultingTitle = 'CONSULTORIA TECH';
-  static const String consultingSubtitle = 'Ajudamos sua empresa\na tomar as melhores\ndecisões';
-  static const String consultingDescription = 'Ao desenvolver um produto de tecnologia, diversos desafios são enfrentados ao longo do caminho, nós ajudamos sua empresa a escolher os caminhos mais curtos e que dão resultados reais.';
-  
-  // About Features
+  static const String consultingSubtitle =
+    'Decisões inteligentes\npara resultados estratégicos';
+  static const String consultingDescription =
+    'Cada projeto de tecnologia traz desafios únicos. '
+    'Nossa consultoria orienta sua empresa em cada etapa, '
+    'apontando os melhores caminhos para reduzir custos, acelerar processos '
+    'e alcançar objetivos com segurança e eficácia.';
   static const String creativityTitle = 'Criatividade';
   static const String creativityDescription = 'Times criativos com alta capacidade de inovação e desenvolvimento.';
   static const String riskManagementTitle = 'Gestão de Riscos';
