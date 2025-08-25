@@ -7,95 +7,114 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 80,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: [
-            Color(0xFFFFFFFF), // Branco à esquerda
-            Color.fromARGB(255, 255, 255, 255), // Azul à direita
-          ],
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
-        child: Row(
-          children: [
-            // Logo à esquerda
-            Container(
-              height: 60,
-              width: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: const Color.fromARGB(255, 8, 0, 0).withOpacity(0.1),
-              ),
-              padding: const EdgeInsets.all(8),
-              child: Image.asset(
-                AppStrings.logoAssetPath,
-                fit: BoxFit.contain,
-              ),
-            ),
-            
-            // Logo Dseven centralizado
-            Expanded(
-              child: Center(
-                child: DsevenLogo(
-                  height: 50,
-                ),
-              ),
-            ),
-            
-            // Redes sociais e botão à direita
-            Row(
-              children: [
-                // Instagram
-                _buildSocialIconButton(
-                  iconPath: AppStrings.instagramIconPath,
-                  onPressed: () {
-                    // TODO: Abrir Instagram
-                  },
-                ),
-                // LinkedIn
-                _buildSocialIconButton(
-                  iconPath: AppStrings.linkedinIconPath,
-                  onPressed: () {
-                    // TODO: Abrir LinkedIn
-                  },
-                ),
-                // Facebook
-                _buildSocialIconButton(
-                  iconPath: AppStrings.facebookIconPath,
-                  onPressed: () {
-                    // TODO: Abrir Facebook
-                  },
-                ),
-                const SizedBox(width: 16),
-                // Botão Entre em Contato
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 0, 119, 255), // azul como na imagem
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                  ),
-                  child: const Text(
-                    'ENTRE EM CONTATO',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isDesktop = constraints.maxWidth > 1200;
+        final isTablet = constraints.maxWidth > 768;
+        
+        // Padding responsivo
+        final horizontalPadding = isDesktop ? 80.0 : isTablet ? 40.0 : 20.0;
+        
+        // Tamanhos responsivos
+        final logoSize = isDesktop ? 60.0 : isTablet ? 50.0 : 40.0;
+        final textHeight = isDesktop ? 50.0 : isTablet ? 40.0 : 30.0;
+        final headerHeight = isDesktop ? 80.0 : isTablet ? 70.0 : 60.0;
+        
+        return Container(
+          height: headerHeight,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color(0xFFFFFFFF), // Branco à esquerda
+                Color.fromARGB(255, 255, 255, 255), // Azul à direita
               ],
             ),
-          ],
-        ),
-      ),
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: Row(
+              children: [
+                // Logo à esquerda
+                Container(
+                  height: logoSize,
+                  width: logoSize,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(isDesktop ? 8 : 6),
+                    color: const Color.fromARGB(255, 8, 0, 0).withOpacity(0.1),
+                  ),
+                  padding: EdgeInsets.all(isDesktop ? 8 : 6),
+                  child: Image.asset(
+                    AppStrings.logoAssetPath,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                
+                // Logo Dseven centralizado
+                Expanded(
+                  child: Center(
+                    child: DsevenLogo(
+                      height: textHeight,
+                    ),
+                  ),
+                ),
+                
+                // Redes sociais e botão à direita (ocultar em mobile)
+                if (isTablet)
+                  Row(
+                    children: [
+                      // Instagram
+                      _buildSocialIconButton(
+                        iconPath: AppStrings.instagramIconPath,
+                        onPressed: () {
+                          // TODO: Abrir Instagram
+                        },
+                      ),
+                      // LinkedIn
+                      _buildSocialIconButton(
+                        iconPath: AppStrings.linkedinIconPath,
+                        onPressed: () {
+                          // TODO: Abrir LinkedIn
+                        },
+                      ),
+                      // Facebook
+                      _buildSocialIconButton(
+                        iconPath: AppStrings.facebookIconPath,
+                        onPressed: () {
+                          // TODO: Abrir Facebook
+                        },
+                      ),
+                      SizedBox(width: isDesktop ? 16 : 12),
+                      // Botão Entre em Contato
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color.fromARGB(255, 0, 119, 255),
+                          foregroundColor: Colors.white,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: isDesktop ? 20 : 16,
+                            vertical: isDesktop ? 10 : 8,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                        ),
+                        child: Text(
+                          'ENTRE EM CONTATO',
+                          style: TextStyle(
+                            fontSize: isDesktop ? 12 : 10,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 

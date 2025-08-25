@@ -7,96 +7,118 @@ class ServicesSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 80),
-      color: Colors.grey[50],
-      child: Column(
-        children: [
-          // Título da seção
-          Text(
-            'SERVIÇOS SOB MEDIDA',
-            style: TextStyle(
-              color: const Color(0xFF2196F3),
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2,
-            ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isDesktop = constraints.maxWidth > 1200;
+        final isTablet = constraints.maxWidth > 768;
+        
+        // Padding responsivo
+        final horizontalPadding = isDesktop ? 80.0 : isTablet ? 40.0 : 20.0;
+        final verticalPadding = isDesktop ? 80.0 : isTablet ? 60.0 : 40.0;
+        
+        // Grid responsivo
+        final crossAxisCount = isDesktop ? 4 : isTablet ? 2 : 1;
+        final childAspectRatio = isDesktop ? 0.9 : isTablet ? 1.1 : 1.3;
+        final spacing = isDesktop ? 24.0 : isTablet ? 20.0 : 16.0;
+        
+        // Tamanhos de fonte responsivos
+        final titleFontSize = isDesktop ? 48.0 : isTablet ? 36.0 : 28.0;
+        final subtitleFontSize = isDesktop ? 16.0 : isTablet ? 14.0 : 12.0;
+        
+        return Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: horizontalPadding, 
+            vertical: verticalPadding
           ),
-          
-          const SizedBox(height: 16),
-          
-          Text(
-            'Soluções Para Seu Negócio Crescer',
-            style: Theme.of(context).textTheme.displayMedium?.copyWith(
-              fontSize: 48,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          
-          const SizedBox(height: 80),
-          
-          // Grid de serviços
-          GridView.count(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            crossAxisCount: 4,
-            crossAxisSpacing: 24,
-            mainAxisSpacing: 24,
-            childAspectRatio: 0.9,
+          color: Colors.grey[50],
+          child: Column(
             children: [
-              _buildServiceCard(
-                context,
-                AppStrings.lightIconPath,
-                AppStrings.productThinking,
-                'Estruturação de produtos digitais inovadores, monetizáveis e escaláveis.',
+              // Título da seção
+              Text(
+                'SERVIÇOS SOB MEDIDA',
+                style: TextStyle(
+                  color: const Color(0xFF2196F3),
+                  fontSize: subtitleFontSize,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2,
+                ),
               ),
-              _buildServiceCard(
-                context,
-                AppStrings.designIconPath,
-                AppStrings.uxDesign,
-                'Criação de experiências de usuário com foco em retenção e conforto.',
+              
+              const SizedBox(height: 16),
+              
+              Text(
+                'Soluções Para Seu Negócio Crescer',
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  fontSize: titleFontSize,
+                ),
+                textAlign: TextAlign.center,
               ),
-              _buildServiceCard(
-                context,
-                AppStrings.iphoneIconPath,
-                AppStrings.mobileApp,
-                'Desenvolvimento Android e iOS, aplicativos híbridos e nativos, com soluções personalizadas.',
-              ),
-              _buildServiceCard(
-                context,
-                AppStrings.webIconPath,
-                AppStrings.webApp,
-                'Desenvolvimento Angular, React, Vue, plataformas Web e aplicativos responsivos.',
-              ),
-              _buildServiceCard(
-                context,
-                AppStrings.serverIconPath,
-                AppStrings.database,
-                'Bancos de dados relacionais, não relacionais, elásticos e LGPD compliance.',
-              ),
-              _buildServiceCard(
-                context,
-                AppStrings.programmerIconPath,
-                'Integração',
-                'Desenvolvimento de integrações entre softwares, ERP, CRM, Gateways.',
-              ),
-              _buildServiceCard(
-                context,
-                AppStrings.checkIconPath,
-                'Garantia de 5 anos',
-                'Resolução de bugs e defeitos sem custo, garantindo disponibilidade.',
-              ),
-              _buildServiceCard(
-                context,
-                AppStrings.arrowIconPath,
-                'Evolução Contínua',
-                'Suporte e execução de roadmaps de evolução de produtos digitais.',
+              
+              SizedBox(height: isDesktop ? 80 : 60),
+              
+              // Grid de serviços responsivo
+              GridView.count(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: crossAxisCount,
+                crossAxisSpacing: spacing,
+                mainAxisSpacing: spacing,
+                childAspectRatio: childAspectRatio,
+                children: [
+                  _buildServiceCard(
+                    context,
+                    AppStrings.lightIconPath,
+                    AppStrings.productThinking,
+                    'Estruturação de produtos digitais inovadores, monetizáveis e escaláveis.',
+                  ),
+                  _buildServiceCard(
+                    context,
+                    AppStrings.designIconPath,
+                    AppStrings.uxDesign,
+                    'Criação de experiências de usuário com foco em retenção e conforto.',
+                  ),
+                  _buildServiceCard(
+                    context,
+                    AppStrings.iphoneIconPath,
+                    AppStrings.mobileApp,
+                    'Desenvolvimento Android e iOS, aplicativos híbridos e nativos, com soluções personalizadas.',
+                  ),
+                  _buildServiceCard(
+                    context,
+                    AppStrings.webIconPath,
+                    AppStrings.webApp,
+                    'Desenvolvimento Angular, React, Vue, plataformas Web e aplicativos responsivos.',
+                  ),
+                  _buildServiceCard(
+                    context,
+                    AppStrings.serverIconPath,
+                    AppStrings.database,
+                    'Bancos de dados relacionais, não relacionais, elásticos e LGPD compliance.',
+                  ),
+                  _buildServiceCard(
+                    context,
+                    AppStrings.programmerIconPath,
+                    'Integração',
+                    'Desenvolvimento de integrações entre softwares, ERP, CRM, Gateways.',
+                  ),
+                  _buildServiceCard(
+                    context,
+                    AppStrings.checkIconPath,
+                    'Garantia de 5 anos',
+                    'Resolução de bugs e defeitos sem custo, garantindo disponibilidade.',
+                  ),
+                  _buildServiceCard(
+                    context,
+                    AppStrings.arrowIconPath,
+                    'Evolução Contínua',
+                    'Suporte e execução de roadmaps de evolução de produtos digitais.',
+                  ),
+                ],
               ),
             ],
           ),
-
-        ],
-      ),
+        );
+      },
     );
   }
 
