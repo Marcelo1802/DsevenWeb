@@ -13,12 +13,13 @@ class HeaderWidget extends StatelessWidget {
         final isTablet = constraints.maxWidth > 768;
         
         // Padding responsivo
-        final horizontalPadding = isDesktop ? 80.0 : isTablet ? 40.0 : 20.0;
+        final horizontalPadding = isDesktop ? 80.0 : isTablet ? 40.0 : 16.0;
+        final verticalPadding = isDesktop ? 0.0 : isTablet ? 0.0 : 8.0;
         
         // Tamanhos responsivos
-        final logoSize = isDesktop ? 60.0 : isTablet ? 50.0 : 40.0;
-        final textHeight = isDesktop ? 50.0 : isTablet ? 40.0 : 30.0;
-        final headerHeight = isDesktop ? 80.0 : isTablet ? 70.0 : 60.0;
+        final logoSize = isDesktop ? 60.0 : isTablet ? 50.0 : 36.0;
+        final textHeight = isDesktop ? 50.0 : isTablet ? 40.0 : 28.0;
+        final headerHeight = isDesktop ? 80.0 : isTablet ? 70.0 : 72.0; // Aumentado para mobile
         
         return Container(
           height: headerHeight,
@@ -28,12 +29,22 @@ class HeaderWidget extends StatelessWidget {
               end: Alignment.centerRight,
               colors: [
                 Color(0xFFFFFFFF), // Branco à esquerda
-                Color.fromARGB(255, 255, 255, 255), // Azul à direita
+                Color.fromARGB(255, 255, 255, 255), // Branco à direita
               ],
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromARGB(20, 0, 0, 0),
+                blurRadius: 4,
+                offset: Offset(0, 2),
+              ),
+            ],
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            padding: EdgeInsets.symmetric(
+              horizontal: horizontalPadding, 
+              vertical: verticalPadding
+            ),
             child: Row(
               children: [
                 // Logo à esquerda
@@ -44,7 +55,7 @@ class HeaderWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(isDesktop ? 8 : 6),
                     color: const Color.fromARGB(255, 8, 0, 0).withOpacity(0.1),
                   ),
-                  padding: EdgeInsets.all(isDesktop ? 8 : 6),
+                  padding: EdgeInsets.all(isDesktop ? 8 : isTablet ? 6 : 4),
                   child: Image.asset(
                     AppStrings.logoAssetPath,
                     fit: BoxFit.contain,
@@ -60,8 +71,8 @@ class HeaderWidget extends StatelessWidget {
                   ),
                 ),
                 
-                // Redes sociais e botão à direita (ocultar em mobile)
-                if (isTablet)
+                // Redes sociais e botão à direita
+                if (isTablet || isDesktop) ...[
                   Row(
                     children: [
                       // Instagram
@@ -70,6 +81,7 @@ class HeaderWidget extends StatelessWidget {
                         onPressed: () {
                           // TODO: Abrir Instagram
                         },
+                        isDesktop: isDesktop,
                       ),
                       // LinkedIn
                       _buildSocialIconButton(
@@ -77,6 +89,7 @@ class HeaderWidget extends StatelessWidget {
                         onPressed: () {
                           // TODO: Abrir LinkedIn
                         },
+                        isDesktop: isDesktop,
                       ),
                       // Facebook
                       _buildSocialIconButton(
@@ -84,6 +97,7 @@ class HeaderWidget extends StatelessWidget {
                         onPressed: () {
                           // TODO: Abrir Facebook
                         },
+                        isDesktop: isDesktop,
                       ),
                       SizedBox(width: isDesktop ? 16 : 12),
                       // Botão Entre em Contato
@@ -110,6 +124,26 @@ class HeaderWidget extends StatelessWidget {
                       ),
                     ],
                   ),
+                ] else ...[
+                  // Menu hambúrguer para mobile
+                  Builder(
+                    builder: (context) => IconButton(
+                      onPressed: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      icon: const Icon(
+                        Icons.menu,
+                        color: Color(0xFF2196F3),
+                        size: 28,
+                      ),
+                      padding: const EdgeInsets.all(8),
+                      constraints: const BoxConstraints(
+                        minWidth: 40,
+                        minHeight: 40,
+                      ),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
@@ -121,10 +155,12 @@ class HeaderWidget extends StatelessWidget {
   Widget _buildSocialIconButton({
     required String iconPath,
     required VoidCallback onPressed,
+    required bool isDesktop,
   }) {
     return AnimatedSocialIcon(
       iconPath: iconPath,
       onPressed: onPressed,
+      isDesktop: isDesktop,
     );
   }
 }
@@ -132,11 +168,13 @@ class HeaderWidget extends StatelessWidget {
 class AnimatedSocialIcon extends StatefulWidget {
   final String iconPath;
   final VoidCallback onPressed;
+  final bool isDesktop;
 
   const AnimatedSocialIcon({
     super.key,
     required this.iconPath,
     required this.onPressed,
+    required this.isDesktop,
   });
 
   @override
@@ -187,6 +225,9 @@ class _AnimatedSocialIconState extends State<AnimatedSocialIcon>
 
   @override
   Widget build(BuildContext context) {
+    final iconSize = widget.isDesktop ? 40.0 : 36.0;
+    final padding = widget.isDesktop ? 8.0 : 6.0;
+    
     return MouseRegion(
       onEnter: _onEnter,
       onExit: _onExit,
@@ -199,11 +240,11 @@ class _AnimatedSocialIconState extends State<AnimatedSocialIcon>
             return Transform.scale(
               scale: _scaleAnimation.value,
               child: Container(
-                width: 40,
-                height: 40,
-                padding: const EdgeInsets.all(8),
+                width: iconSize,
+                height: iconSize,
+                padding: EdgeInsets.all(padding),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(iconSize / 2),
                   border: Border.all(
                     color: const Color(0xFF2196F3).withOpacity(0.3),
                     width: 1,
@@ -219,7 +260,7 @@ class _AnimatedSocialIconState extends State<AnimatedSocialIcon>
                     return Icon(
                       Icons.error,
                       color: Colors.grey,
-                      size: 20,
+                      size: iconSize * 0.5,
                     );
                   },
                 ),
