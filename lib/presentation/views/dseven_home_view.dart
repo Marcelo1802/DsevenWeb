@@ -49,19 +49,19 @@ class _CroSoftenHomeViewState extends State<CroSoftenHomeView> {
         color: const Color(0xFF1A1A2E),
         child: Column(
           children: [
-            // Header do drawer
+            // Header do drawer com fundo branco
             Container(
               height: 120,
               padding: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color(0xFF2196F3),
-                    Color(0xFF1976D2),
-                  ],
-                ),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(20, 0, 0, 0),
+                    blurRadius: 4,
+                    offset: Offset(0, 2),
+                  ),
+                ],
               ),
               child: Row(
                 children: [
@@ -70,7 +70,7 @@ class _CroSoftenHomeViewState extends State<CroSoftenHomeView> {
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Colors.white.withOpacity(0.2),
+                      color: const Color(0xFF2196F3).withOpacity(0.1),
                     ),
                     padding: const EdgeInsets.all(8),
                     child: Image.asset(
@@ -155,21 +155,21 @@ class _CroSoftenHomeViewState extends State<CroSoftenHomeView> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       _buildSocialButton(
-                        icon: Icons.camera_alt,
+                        iconPath: AppStrings.instagramIconPath,
                         label: 'Instagram',
                         onTap: () {
                           // TODO: Abrir Instagram
                         },
                       ),
                       _buildSocialButton(
-                        icon: Icons.business,
+                        iconPath: AppStrings.linkedinIconPath,
                         label: 'LinkedIn',
                         onTap: () {
                           // TODO: Abrir LinkedIn
                         },
                       ),
                       _buildSocialButton(
-                        icon: Icons.facebook,
+                        iconPath: AppStrings.facebookIconPath,
                         label: 'Facebook',
                         onTap: () {
                           // TODO: Abrir Facebook
@@ -236,7 +236,7 @@ class _CroSoftenHomeViewState extends State<CroSoftenHomeView> {
   }
 
   Widget _buildSocialButton({
-    required IconData icon,
+    required String iconPath,
     required String label,
     required VoidCallback onTap,
   }) {
@@ -254,10 +254,19 @@ class _CroSoftenHomeViewState extends State<CroSoftenHomeView> {
                 color: const Color(0xFF2196F3).withOpacity(0.3),
               ),
             ),
-            child: Icon(
-              icon,
-              color: const Color(0xFF2196F3),
-              size: 24,
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Image.asset(
+                iconPath,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  return Icon(
+                    Icons.error,
+                    color: const Color(0xFF2196F3),
+                    size: 24,
+                  );
+                },
+              ),
             ),
           ),
           const SizedBox(height: 8),

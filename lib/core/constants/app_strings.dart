@@ -2,8 +2,8 @@ class AppStrings {
   // Header
   static const String appName = 'Dseven';
   static const String menuHome = 'Home';
-  static const String menuAbout = 'Sobrre';
-  static const String menuServices = 'serviços';
+  static const String menuAbout = 'Sobre';
+  static const String menuServices = 'Serviços';
   static const String menuProjects = 'Projetos';
   static const String menuContact = 'Contato';
 
